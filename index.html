@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern Hello World website with interactive features">
+    <meta name="author" content="Hello World App">
+    <title>Hello World - Modern Static Site</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
+</head>
+<body>
+    <!-- Loading screen -->
+    <div id="loading-screen" class="loading-screen" aria-hidden="true">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Loading...</p>
+    </div>
+
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="logo">
+                    <span class="logo-icon" aria-hidden="true">👋</span>
+                    <span class="logo-text">Hello World</span>
+                </div>
+                <button 
+                    class="theme-toggle" 
+                    id="theme-toggle" 
+                    aria-label="Toggle dark mode"
+                    type="button"
+                >
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content -->
+    <main id="main-content" class="main" role="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="hero-title">
+                        <span class="greeting-text" id="greeting-text">Hello</span>
+                        <span class="world-text">World</span>
+                        <span class="wave-emoji" aria-label="waving hand">👋</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Welcome to a modern, interactive Hello World experience built with 
+                        <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong>.
+                    </p>
+
+                    <div class="hero-actions">
+                        <button 
+                            class="btn btn-primary" 
+                            id="greet-btn"
+                            type="button"
+                            aria-describedby="greet-description"
+                        >
+                            Say Hello
+                        </button>
+                        <button 
+                            class="btn btn-secondary" 
+                            id="info-btn"
+                            type="button"
+                        >
+                            Learn More
+                        </button>
+                    </div>
+
+                    <p id="greet-description" class="sr-only">
+                        Click to see a personalized greeting
+                    </p>
+                </div>
+
+                <!-- Interactive greeting display -->
+                <div class="greeting-display" id="greeting-display" role="status" aria-live="polite">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Features section -->
+        <section class="features" aria-labelledby="features-title">
+            <div class="features-container">
+                <h2 id="features-title" class="features-title">Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🎨</div>
+                        <h3 class="feature-title">Modern Design</h3>
+                        <p class="feature-description">
+                            Clean, responsive design with smooth animations and glass morphism effects.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">♿</div>
+                        <h3 class="feature-title">Accessible</h3>
+                        <p class="feature-description">
+                            Built with accessibility in mind, including proper ARIA labels and keyboard navigation.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">⚡</div>
+                        <h3 class="feature-title">Interactive</h3>
+                        <p class="feature-description">
+                            Dynamic content, theme switching, and engaging user interactions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats section -->
+        <section class="stats" aria-labelledby="stats-title">
+            <div class="stats-container">
+                <h2 id="stats-title" class="sr-only">Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" id="visit-counter">0</div>
+                        <div class="stat-label">Page Visits</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="greeting-counter">0</div>
+                        <div class="stat-label">Greetings Given</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="time-display">--:--</div>
+                        <div class="stat-label">Current Time</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-container">
+            <p class="footer-text">
+                Made with ❤️ using HTML, CSS & JavaScript
+            </p>
+            <p class="footer-copyright">
+                © 2024 Hello World App. Built for learning and fun.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal for additional info -->
+    <div 
+        class="modal" 
+        id="info-modal" 
+        role="dialog" 
+        aria-labelledby="modal-title" 
+        aria-describedby="modal-description"
+        aria-hidden="true"
+    >
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title" class="modal-title">About This Project</h3>
+                <button 
+                    class="modal-close" 
+                    id="modal-close"
+                    type="button"
+                    aria-label="Close modal"
+                >
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-description" class="modal-description">
+                    This Hello World application demonstrates modern web development practices including:
+                </p>
+                <ul class="modal-list">
+                    <li>Semantic HTML5 structure</li>
+                    <li>Responsive CSS with custom properties</li>
+                    <li>Interactive JavaScript functionality</li>
+                    <li>Accessibility best practices</li>
+                    <li>Modern UI/UX design patterns</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+    
+    <!-- Inline critical JavaScript for immediate functionality -->
+    <script>
+        // Prevent flash of unstyled content
+        document.documentElement.classList.add('js-enabled');
+        
+        // Set initial theme based on user preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        
+        // Hide loading screen when page is loaded
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>
